@@ -5,19 +5,11 @@
     <div class="col" *ngFor="let route of mockerRoutes">
       <div class="card w-100">
         <div class="card-header">
-          <fa-icon [icon]="faUnlock"></fa-icon> -
+          <fa-icon [icon]="faUnlock"></fa-icon> &nbsp;
           <span *ngIf="route.method === 'get'" class="badge bg-success badge-text-color">{{route.method}}</span>
           <span *ngIf="route.method === 'post'" class="badge bg-warning badge-text-color">{{route.method}}</span>
           <span *ngIf="route.method === 'put'" class="badge bg-primary badge-text-color">{{route.method}}</span>
-          <span *ngIf="route.method === 'delete'" class="badge bg-danger badge-text-color">{{route.method}}</span> -
-          <span class="badge badge-secondary">[host]</span>&nbsp;
-          <span *ngIf="route.context && route.context.length > 0">
-            / &nbsp;
-            <span class="badge bg-dark badge-text-color">
-              [context]
-            </span>
-            &nbsp;
-          </span>
+          <span *ngIf="route.method === 'delete'" class="badge bg-danger badge-text-color">{{route.method}}</span> &nbsp;
           <span class="lower bold s12">{{route.path}}</span>
         </div>
         <div class="card-body">
