@@ -1,1 +1,53 @@
-<p>home works!</p>
+<div class="home">
+  <h1>Routes</h1>
+  <h6>{{mockerURL}}</h6>
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col" *ngFor="let route of mockerRoutes">
+      <div class="card w-100">
+        <div class="card-header">
+          <fa-icon [icon]="faUnlock"></fa-icon> -
+          <span *ngIf="route.method === 'get'" class="badge bg-success badge-text-color">{{route.method}}</span>
+          <span *ngIf="route.method === 'post'" class="badge bg-warning badge-text-color">{{route.method}}</span>
+          <span *ngIf="route.method === 'put'" class="badge bg-primary badge-text-color">{{route.method}}</span>
+          <span *ngIf="route.method === 'delete'" class="badge bg-danger badge-text-color">{{route.method}}</span> -
+          <span class="badge bg-dark badge-text-color"
+            *ngIf="route.context && route.context.length > 0">[context]</span>
+          <span class="lower bold s12">{{route.path}}</span>
+        </div>
+        <div class="card-body">
+          <div class="card-text s12">
+            <div class="row">
+              <div class="col-md-6">
+                <strong>Name: </strong>{{route.name}}
+              </div>
+              <div class="col-md-6">
+                <strong>Expected status: </strong>{{route.expectedStatus}}
+              </div>
+            </div>
+            <div class="row" *ngIf="route.context && route.context.length > 0;else noContextTemplate">
+              <div class="col-md-12">
+                <strong>Context: </strong>{{route.context}}
+              </div>
+            </div>
+            <ng-template #noContextTemplate>
+              <div class="row">
+                <div class="col-md-12">
+                  <strong>No context</strong>
+                </div>
+              </div>
+            </ng-template>
+          </div>
+          <div class="card-space"></div>
+          <div class="card-text">
+            <div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
+              <a href="#" (click)="goToDetails(route)" class="btn btn-primary">Details</a>
+              <a href="#" (click)="execute(route._id)" class="btn btn-primary">Test</a>
+              <a href="#" (click)="goToDelete(route._id)" class="btn btn-danger">Delete</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-space"></div>
+    </div>
+  </div>
+</div>
