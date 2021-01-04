@@ -1,6 +1,6 @@
 <div class="home">
   <h1>Routes</h1>
-  <h6>{{mockerURL}}</h6>
+  <h6>HOST: {{mockerURL}}</h6>
   <div class="row row-cols-1 row-cols-md-2 g-4">
     <div class="col" *ngFor="let route of mockerRoutes">
       <div class="card w-100">
@@ -10,8 +10,14 @@
           <span *ngIf="route.method === 'post'" class="badge bg-warning badge-text-color">{{route.method}}</span>
           <span *ngIf="route.method === 'put'" class="badge bg-primary badge-text-color">{{route.method}}</span>
           <span *ngIf="route.method === 'delete'" class="badge bg-danger badge-text-color">{{route.method}}</span> -
-          <span class="badge bg-dark badge-text-color"
-            *ngIf="route.context && route.context.length > 0">[context]</span>
+          <span class="badge badge-secondary">[host]</span>&nbsp;
+          <span *ngIf="route.context && route.context.length > 0">
+            / &nbsp;
+            <span class="badge bg-dark badge-text-color">
+              [context]
+            </span>
+            &nbsp;
+          </span>
           <span class="lower bold s12">{{route.path}}</span>
         </div>
         <div class="card-body">
