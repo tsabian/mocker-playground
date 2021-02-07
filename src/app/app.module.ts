@@ -8,13 +8,15 @@ import { AddMockRouteComponent } from './components/add-mock-route/add-mock-rout
 import { HttpClientModule } from '@angular/common/http';
 import { MockerRouteDetailComponent } from './components/mocker-route-detail/mocker-route-detail.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ConfigurationComponent } from './components/configuration/configuration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AddMockRouteComponent,
-    MockerRouteDetailComponent
+    MockerRouteDetailComponent,
+    ConfigurationComponent
   ],
   imports: [
     BrowserModule,
