@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-mocker-route-detail',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MockerRouteDetailComponent implements OnInit {
 
-  constructor() { }
+  id: string;
+  private sub: any;
 
-  ngOnInit(): void {
+  constructor(private route: ActivatedRoute) {
+    this.id = this.route.snapshot.params.id;
   }
 
+  ngOnInit(): void {
+
+  }
 }

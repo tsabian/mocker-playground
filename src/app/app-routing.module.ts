@@ -8,12 +8,12 @@ import { MockerRouteDetailComponent } from './components/mocker-route-detail/moc
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'new', component: AddMockRouteComponent },
-  { path: 'detail', component: MockerRouteDetailComponent },
+  { path: 'detail/:id', component: MockerRouteDetailComponent },
   { path: 'configuration', component: ConfigurationComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
