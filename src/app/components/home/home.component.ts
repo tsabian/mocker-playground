@@ -1,14 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { faUnlock } from '@fortawesome/free-solid-svg-icons';
 
 import { MockerRoute } from 'src/app/models/mocker-route';
 import { MockRoutesService } from 'src/app/services/mock-routes.service';
 import { environment } from 'src/environments/environment';
-
-import { faTintSlash, faUnlock } from '@fortawesome/free-solid-svg-icons';
-import { stringify } from 'querystring';
-import { LEADING_TRIVIA_CHARS } from '@angular/compiler/src/render3/view/template';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -50,7 +46,7 @@ export class HomeComponent implements OnInit {
   execute(id: string): void {
     const selected = this.mockerRoutes.find((value) => value._id === id);
     if (selected) {
-      let path = selected.context && selected.context.length > 0 ? `/${selected.context[0]}${selected.path}` : selected.path;
+      const path = selected.context && selected.context.length > 0 ? `/${selected.context[0]}${selected.path}` : selected.path;
       this.mockerService.execute(selected.method, path).subscribe(obj => {
         if (obj && obj.body) {
           this.testHeader = selected.name;
